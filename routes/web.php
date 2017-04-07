@@ -16,6 +16,6 @@ Route::get('/', 'WelcomeController@show');
 Route::get('/home', 'HomeController@show');
 
 Route::group([], function() {
-	Route::resource('/weather', 'WeatherController', ['only' => ['index']]);
 	Route::resource('/weather/map', 'WeatherMapController', ['only' => ['index']]);
+	Route::resource('/weather/{units?}', 'WeatherController', ['only' => ['index']]);
 });

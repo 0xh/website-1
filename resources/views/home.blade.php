@@ -11,7 +11,17 @@
 
         <div class="panel-body">
             <weather-data :user="user" inline-template>
-                <div></div>
+                <div>
+                    <div class="pull-right">
+                        <button class="btn btn-primary" :class="{active: displayUnits == 'us'}" @click="changeUnits('us')">
+                            US
+                        </button>
+                        <button class="btn btn-primary" :class="{active: displayUnits == 'si'}" @click="changeUnits('si')">
+                            SI
+                        </button>
+                    </div>
+                    @{{weather.currently['visibility']}} @{{ units[displayUnits]['visibility'] }}
+                </div>
             </weather-data>
         </div>
     </div>
