@@ -12,7 +12,8 @@ export default {
         dewPoint: 'Degrees Celsius',
         windSpeed: 'Meters per second',
         pressure: 'Hectopascals',
-        visibility: 'Kilometer'
+        visibility: 'Kilometer',
+        humidity: '%'
     },
     ca: {
         summaryDegrees: 'Degrees Celsius',
@@ -27,7 +28,8 @@ export default {
         dewPoint: 'Degrees Celsius',
         windSpeed: 'Kilometers per hour',
         pressure: 'Hectopascals',
-        visibility: 'Kilometer'
+        visibility: 'Kilometer',
+        humidity: '%'
     },
     uk2: {
         summaryDegrees: 'Degrees Celsius',
@@ -42,7 +44,8 @@ export default {
         dewPoint: 'Degrees Celsius',
         windSpeed: 'Miles per hour',
         pressure: 'Hectopascals',
-        visibility: 'Kilometer'
+        visibility: 'Kilometer',
+        humidity: '%'
     },
     us: {
         summaryDegrees: 'Degrees Fahrenheit',
@@ -57,6 +60,7 @@ export default {
         dewPoint: 'Degrees Fahrenheit',
         windSpeed: 'Miles per hour',
         pressure: 'Hectopascals',
-        visibility: 'Miles'
+        visibility: 'Miles',
+        humidity: '%'
     }
 }

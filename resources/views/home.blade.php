@@ -20,7 +20,12 @@
                             SI
                         </button>
                     </div>
-                    @{{weather.currently['visibility']}} @{{ units[displayUnits]['visibility'] }}
+                    <dl class="dl-horizontal">
+                        <dt>Temperature</dt><dd>@{{weather.currently['temperature']}} @{{ units[displayUnits]['temperature'] }}</dd>
+                        <dt>Wind Speed</dt><dd>@{{weather.currently['windSpeed']}} @{{ units[displayUnits]['windSpeed'] }}</dd>
+                        <dt>Humidity</dt><dd>@{{weather.currently['humidity'] * 100}} @{{ units[displayUnits]['humidity'] }}</dd>
+                        <dt>Visibility</dt><dd>@{{weather.currently['visibility']}} @{{ units[displayUnits]['visibility'] }}</dd>
+                    </dl>
                 </div>
             </weather-data>
         </div>

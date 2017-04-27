@@ -1,5 +1,10 @@
 /node_modules
-/public
+/public/css
+/public/fonts
+/public/img
+/public/js
+/public/storage
+/public/weather
 /storage
 /vendor
 /.idea
