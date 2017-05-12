@@ -2,7 +2,9 @@ import Units from './units';
 Vue.component('weather-data', {
     data() {
         return {
-            weather: '',
+            weather: {
+                loaded: false
+            },
             units: Units,
             displayUnits: 'us'
         }
@@ -13,14 +15,17 @@ Vue.component('weather-data', {
     },
 
     methods: {
-        getData(units = '') {
+        getData(units = 'us') {
             axios.get('/weather/' + units).then(({data}) => {
-                this.weather = data;
+                this.$set(this, 'weather', data);
+                this.displayUnits = units;
+                if(!this.weather.loaded) {
+                    this.weather.loaded = true;
+                }
             });
         },
 
         changeUnits(units) {
-            this.displayUnits = units;
             this.getData(units);
         }
     }

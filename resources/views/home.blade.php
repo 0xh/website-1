@@ -20,7 +20,7 @@
                             SI
                         </button>
                     </div>
-                    <dl class="dl-horizontal">
+                    <dl class="dl-horizontal" v-if="weather.loaded">
                         <dt>Temperature</dt><dd>@{{weather.currently['temperature']}} @{{ units[displayUnits]['temperature'] }}</dd>
                         <dt>Wind Speed</dt><dd>@{{weather.currently['windSpeed']}} @{{ units[displayUnits]['windSpeed'] }}</dd>
                         <dt>Humidity</dt><dd>@{{weather.currently['humidity'] * 100}} @{{ units[displayUnits]['humidity'] }}</dd>
@@ -32,10 +32,20 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Financing</div>
+        <div class="panel-heading">Growth Planning</div>
 
         <div class="panel-body">
+            <growth-planning>
 
+            </growth-planning>
         </div>
     </div>
+
+    {{--<div class="panel panel-default">--}}
+        {{--<div class="panel-heading">Financing</div>--}}
+
+        {{--<div class="panel-body">--}}
+
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection
