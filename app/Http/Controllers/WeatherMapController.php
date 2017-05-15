@@ -13,7 +13,9 @@ class WeatherMapController extends Controller
      */
     public function index()
     {
-        return response()->view('weather.index');
+		$ip = geoip()->getLocation();
+
+        return response()->view('weather.index', ['coordinates' => "{$ip['lat']},{$ip['lon']}"]);
     }
 
     /**

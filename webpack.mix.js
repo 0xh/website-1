@@ -16,6 +16,8 @@ mix.less('resources/assets/less/app.less', 'public/css')
         .copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js/sweetalert.min.js')
         .copy('node_modules/sweetalert/dist/sweetalert.css', 'public/css/sweetalert.css')
         .copyDirectory('resources/assets/img', 'public/img')
+        .copy('resources/assets/img/icons/favicon.ico', 'public/favicon.ico')
+        .copy('resources/assets/img/icons/favicon-32x32.png', 'public/favicon.png')
         .js('resources/assets/js/app.js', 'public/js')
         .webpackConfig({
             resolve: {

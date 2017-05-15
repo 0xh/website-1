@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Laravel\Cashier\Cashier;
 use Laravel\Spark\Spark;
 use Laravel\Spark\Providers\AppServiceProvider as ServiceProvider;
 
@@ -50,51 +51,91 @@ class SparkServiceProvider extends ServiceProvider
      */
     public function booted()
     {
+    	Cashier::useCurrency('zmw', 'ZK');
         Spark::useStripe()->noCardUpFront()->trialDays(10);
         Spark::collectBillingAddress();
 
-        Spark::freePlan('Lite')
+        Spark::freePlan('Lite');
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+
+        Spark::plan('Starter', 'starter-monthly-zmw')
+            ->price(19)
             ->features([
-                'First', 'Second', 'Third'
+                'Weather Information', "Crop's Growth Tracking"
             ]);
 
-        Spark::plan('Starter', 'starter-monthly')
-            ->price(1.99)
-            ->features([
-                'First', 'Second', 'Third'
-            ]);
+//        Spark::plan('Grower Lite', 'grower-lite-monthly-zmw')
+//            ->price(79)
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
 
-        Spark::plan('Grower Lite', 'grower-lite-monthly')
-            ->price(8.99)
-            ->features([
-                'First', 'Second', 'Third'
-            ]);
+//        Spark::plan('Grower Pro', 'grower-pro-monthly-zmw')
+//            ->price(179)
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
 
-        Spark::plan('Grower Pro', 'grower-pro-monthly')
-            ->price(18.99)
-            ->features([
-                'First', 'Second', 'Third'
-            ]);
-
-        Spark::plan('Starter', 'starter-yearly')
-            ->price(19.99)
+        Spark::plan('Starter', 'starter-yearly-zmw')
+            ->price(190)
 			->yearly()
             ->features([
-                'First', 'Second', 'Third'
+                'Weather Information', "Crop's Growth Tracking"
             ]);
 
-        Spark::plan('Grower Lite', 'grower-lite-yearly')
-            ->price(89.99)
-			->yearly()
-            ->features([
-                'First', 'Second', 'Third'
-            ]);
+//        Spark::plan('Grower Lite', 'grower-lite-yearly-zmw')
+//            ->price(790)
+//			->yearly()
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
 
-        Spark::plan('Grower Pro', 'grower-pro-yearly')
-            ->price(189.99)
-			->yearly()
-            ->features([
-                'First', 'Second', 'Third'
-            ]);
+//        Spark::plan('Grower Pro', 'grower-pro-yearly-zmw')
+//            ->price(1790)
+//			->yearly()
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+
+//        Spark::plan('Starter', 'starter-monthly-usd')
+//            ->price(1.99)
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+//
+//        Spark::plan('Grower Lite', 'grower-lite-monthly-usd')
+//            ->price(8.99)
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+//
+//        Spark::plan('Grower Pro', 'grower-pro-monthly-usd')
+//            ->price(18.99)
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+//
+//        Spark::plan('Starter', 'starter-yearly-usd')
+//            ->price(19.99)
+//			->yearly()
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+//
+//        Spark::plan('Grower Lite', 'grower-lite-yearly-usd')
+//            ->price(89.99)
+//			->yearly()
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
+//
+//        Spark::plan('Grower Pro', 'grower-pro-yearly-usd')
+//            ->price(189.99)
+//			->yearly()
+//            ->features([
+//                'First', 'Second', 'Third'
+//            ]);
     }
 }

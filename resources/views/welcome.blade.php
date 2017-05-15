@@ -71,22 +71,30 @@
 <body>
     <div class="full-height flex-column">
         <nav class="links">
-            <a href="/login" style="margin-right: 15px;">
-                <button>
-                    Login
-                </button>
-            </a>
+            @if(Auth::check())
+                <a href="/home">
+                    <button style="width:120px">
+                        Dashboard
+                    </button>
+                </a>
+            @else
+                <a href="/login" style="margin-right: 15px;">
+                    <button>
+                        Login
+                    </button>
+                </a>
 
-            <a href="/register">
-                <button>
-                    Register
-                </button>
-            </a>
+                <a href="/register">
+                    <button>
+                        Register
+                    </button>
+                </a>
+            @endif
         </nav>
 
         <div class="flex-fill flex-center">
             <h1 class="text-center">
-                <img src="/img/color-logo.png">
+                <img src="/img/color-logo.png" style="height:500px">
             </h1>
         </div>
     </div>
