@@ -55,10 +55,10 @@ class SparkServiceProvider extends ServiceProvider
         Spark::useStripe()->noCardUpFront()->trialDays(10);
         Spark::collectBillingAddress();
 
-        Spark::freePlan('Lite');
-//            ->features([
-//                'First', 'Second', 'Third'
-//            ]);
+        Spark::freePlan('Lite')
+            ->features([
+				'Weather Information', "Crop's Growth Tracking"
+            ]);
 
         Spark::plan('Starter', 'starter-monthly-zmw')
             ->price(19)
