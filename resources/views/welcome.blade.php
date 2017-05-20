@@ -13,9 +13,9 @@
 
     <style>
         body, html {
-            background: url('/img/spark-bg.png');
-            background-repeat: repeat;
-            background-size: 300px 200px;
+            background: url('/img/agrisave_field.png');
+            /*background-repeat: repeat;*/
+            background-size: cover;
             height: 100%;
             margin: 0;
         }
@@ -39,6 +39,9 @@
             justify-content: center;
         }
 
+        .text-left {
+            text-align: left;
+        }
 
         .text-center {
             text-align: center;
@@ -49,12 +52,12 @@
             text-align: right;
         }
 
-        .links a {
+        .links a, .intro a {
             text-decoration: none;
         }
 
-        .links button {
-            background-color: #3097D1;
+        .links button, .intro button {
+            background-color: #34F097;
             border: 0;
             border-radius: 4px;
             color: white;
@@ -65,6 +68,58 @@
             padding: 15px;
             text-transform: uppercase;
             width: 100px;
+        }
+
+        .site-logo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .site-logo img {
+            height: 125px;
+        }
+
+        .intro {
+            color: white;
+            background: rgba(100,100,100,0.4);
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+            padding: 10px;
+        }
+
+        .intro-message {
+            text-align:center;
+        }
+
+        h1.intro-message {
+            font-size: 4em;
+            margin: 15px 0 0 0;
+        }
+
+        h3.intro-message {
+            font-size: 1.6em;
+            margin: 10px 0;
+        }
+
+        h4.intro-message {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .intro-divider {
+            border-top: 1px solid #f8f8f8;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .intro-button {
+            text-align:center;
+        }
+
+        .intro-button button {
+            width: 160px;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -92,10 +147,34 @@
             @endif
         </nav>
 
+        <div class="site-logo">
+            <img src="/img/color-logo.png">
+        </div>
+
         <div class="flex-fill flex-center">
-            <h1 class="text-center">
-                <img src="/img/color-logo.png" style="height:500px">
-            </h1>
+            <div class="intro">
+                <h1 class="text-center intro-message">
+                    Be an Expert in Farming
+                </h1>
+
+                <h3 class="intro-message">
+                    Agrisave provides farmers with data that allows them to make more informed decisions
+                </h3>
+
+                <hr class="intro-divider">
+
+                <div class="intro-button">
+                    <a href="/register">
+                        <button>
+                            Try for free
+                        </button>
+                    </a>
+                </div>
+
+                <h4 class="intro-message">
+                    "1st Runner Up at Zambia's First Telecom Hackathon"
+                </h4>
+            </div>
         </div>
     </div>
 </body>
