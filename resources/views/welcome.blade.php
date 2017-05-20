@@ -18,6 +18,7 @@
             background-size: cover;
             height: 100%;
             margin: 0;
+            font-family: 'Open Sans';
         }
 
         .full-height {
