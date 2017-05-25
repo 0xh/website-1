@@ -1,5 +1,5 @@
 <!-- Teams -->
-<li class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</li>
+<li class="dropdown-header">Switching {{ ucfirst(str_plural(Spark::teamString())) }}</li>
 
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())

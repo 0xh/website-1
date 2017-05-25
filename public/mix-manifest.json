@@ -1,5 +1,7 @@
 {
   "/js/app.js": "/js/app.js",
   "/mix.js": "/mix.js",
+  "/css/custom.css": "/css/custom.css",
+  "/css/light_custom.css": "/css/light_custom.css",
   "/css/app.css": "/css/app.css"
 }

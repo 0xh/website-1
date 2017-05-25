@@ -1,4 +1,3 @@
-
 /*
  |--------------------------------------------------------------------------
  | Laravel Spark Components
@@ -13,3 +12,7 @@ require('./../spark-components/bootstrap');
 
 require('./home');
 require('./weather-data');
+
+require('../custom/leftmenu.js');
+require('../custom/metisMenu.js');
+require('../custom/rightside_bar.js');
