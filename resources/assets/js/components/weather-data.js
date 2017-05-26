@@ -33,6 +33,18 @@ Vue.component('weather-data', {
 
         changeUnits(units) {
             this.getData(units);
+        },
+
+        getWeather (day) {
+            return ''
+        },
+
+        getWeatherIcon (day) {
+            return ''
+        },
+
+        getDayOfWeek (day) {
+            return moment().add(day, 'd').format('ddd').toUpperCase()
         }
     },
 

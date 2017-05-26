@@ -6,21 +6,22 @@ use GuzzleHttp\Client;
 
 class WeatherGateway {
 
-	private $client, $location, $options;
+	private $client, $locationString, $options, $location;
 
 	public function __construct(array $options = null) {
 		$this->client = new Client();
 		$ip = geoip()->getLocation();
-		$this->location = "{$ip['lat']},{$ip['lon']}";
+		$this->location = $this->getLocation($ip);
+		$this->locationString = "{$ip['lat']},{$ip['lon']}";
 		$this->options = $options;
 	}
 
 	public function getWeatherData() {
-		return json_decode($this->client->get($this->getAPIUrl() . $this->getUrlOptions())->getBody()->getContents(),true);
+		return array_merge(json_decode($this->client->get($this->getAPIUrl() . $this->getUrlOptions())->getBody()->getContents(),true), ['location' => $this->location]);
 	}
 
 	public function getAPIUrl() {
-		return "https://api.darksky.net/forecast/" . config('services.darksky.secret_key') . "/{$this->location}";
+		return "https://api.darksky.net/forecast/" . config('services.darksky.secret_key') . "/{$this->locationString}";
 	}
 
 	public function getUrlOptions() {
@@ -37,5 +38,14 @@ class WeatherGateway {
 		}
 
 		return implode('&', $this->options);
+	}
+
+	public function getLocation($data) {
+		return [
+			'city' => $data['city'],
+			'state' => $data['state'],
+			'country' => $data['country'],
+			'continent' => $data['continent']
+		];
 	}
 }
