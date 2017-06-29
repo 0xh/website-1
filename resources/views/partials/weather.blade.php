@@ -6,30 +6,29 @@
                 <h2>
                     <i class="wi wi-day-cloudy icon"></i>
                     <span class="pull-right" v-if="weather.currently">
-                            @{{ weather.currently.temperature }}
-                        <sup>
-                                <sup>o</sup>
-                            </sup>
+                        @{{ weather.currently.temperature }}
+                        <sup>o</sup>
                         @{{ units[displayUnits]['temperature'] }}
                         <br>
-                            <span class="location">
-                                <i class="ti-location-pin text-default"></i>
-                                @{{ weather.location.city }}, @{{ weather.location.state }} @{{ weather.location.country }}
-                            </span>
+                        <span class="location">
+                            <i class="ti-location-pin text-default"></i>
+                            @{{ weather.location.city }}, @{{ weather.location.state }} @{{ weather.location.country }}
                         </span>
+                    </span>
                 </h2>
             </div>
         </div>
 
-        <div class="weather-footer">
+        <div class="weather-footer" v-if="weather.loaded">
             <div class="text-center">
                 <div class="col-xs-2 popup" v-for="n in 6">
                     <h5>@{{ getDayOfWeek(n) }}</h5>
-                    <i class="wi wi-day-lightning"></i>
-                    <p>21o C</p>
+                    <canvas :id="'icons' + n" height="50" width="50" @></canvas>
+                    <p>@{{ getMaxByDay(n) }}/@{{ getMinByDay(n) }}</p>
                 </div>
             </div>
         </div>
+    </div>
     {{--</div>--}}
     {{--<div class="panel-heading">--}}
     {{--Weather--}}

@@ -26,6 +26,7 @@ Vue.component('weather-data', {
                     this.weather.loaded = true;
                 }
                 this.loading = false;
+                this.renderIcons()
             }).catch((errors) => {
                 this.loading = false;
             });
@@ -39,12 +40,25 @@ Vue.component('weather-data', {
             return ''
         },
 
-        getWeatherIcon (day) {
-            return ''
-        },
-
         getDayOfWeek (day) {
             return moment().add(day, 'd').format('ddd').toUpperCase()
+        },
+
+        getMinByDay(day) {
+            return Math.round(this.weather.daily.data[day].temperatureMin)
+        },
+
+        getMaxByDay(day) {
+            return Math.round(this.weather.daily.data[day].temperatureMax)
+        },
+
+        getWeatherIcon(day) {
+            var icon = this.weather.loaded ? this.weather.daily.data[day].icon == 'partly-cloudy-day' : ''
+            return this.weather.loaded ? `wi-${this.weather.daily.data[day].icon}` : ''
+        },
+
+        renderIcons() {
+
         }
     },
 
