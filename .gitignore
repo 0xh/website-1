@@ -6,7 +6,8 @@
 /public/storage
 /public/weather
 /storage
-/vendor
+/vendor/*
+!/vendor/laravel/spark/
 /.idea
 Homestead.json
 Homestead.yaml
