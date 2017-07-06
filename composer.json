@@ -21,7 +21,8 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Laravel\\Spark\\": "vendor/laravel/spark/src"
         }
     },
     "autoload-dev": {
