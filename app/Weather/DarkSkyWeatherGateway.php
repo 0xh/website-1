@@ -4,7 +4,7 @@ namespace App\Weather;
 
 use GuzzleHttp\Client;
 
-class WeatherGateway {
+class DarkSkyWeatherGateway implements WeatherGatewayInterface {
 
 	private $client, $locationString, $options, $location;
 

@@ -126,7 +126,8 @@
         <div class="panel panel-default">
             <div class="panel-header">
                 <h2 class="text-center">
-                    <img src="img/mono-logo.png" alt="Logo">
+                    <img src="img/color-logo.png" alt="Logo" height="100">
+                    Agrisave
                 </h2>
             </div>
             <div class="panel-body">

@@ -12,6 +12,16 @@ Vue.component('weather-data', {
         }
     },
 
+    computed: {
+        timeOfDay() {
+            return this.isDay ? 'day' : 'night';
+        },
+
+        isDay() {
+            return moment.local().isBetween(moment().hour(8).minute(0).second(0), moment().hour(20).minute(0).second(0));
+        }
+    },
+
     mounted() {
         this.getData();
     },
@@ -55,6 +65,10 @@ Vue.component('weather-data', {
         getWeatherIcon(day) {
             var icon = this.weather.loaded ? this.weather.daily.data[day].icon == 'partly-cloudy-day' : ''
             return this.weather.loaded ? `wi-${this.weather.daily.data[day].icon}` : ''
+        },
+
+        getTimeOfDay() {
+
         },
 
         renderIcons() {

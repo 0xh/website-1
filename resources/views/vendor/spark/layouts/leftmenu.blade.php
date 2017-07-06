@@ -43,8 +43,8 @@
                 <a href="javascript:void(0)">
                     <i class="menu-icon ti-settings"></i>
                     <span>
-                                    Settings
-                                </span>
+                        Settings
+                    </span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul>
@@ -83,8 +83,8 @@
                 <a href="javascript:void(0)">
                     <i class="menu-icon ti-list"></i>
                     <span>
-                                    Billing
-                                </span>
+                        Billing
+                    </span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul>
