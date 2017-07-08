@@ -1,0 +1,58 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@brand-primary:         darken(#6699cc, 6.5%); // #337ab7
+@brand-success:         #66cc99;
+@brand-info:            #66ccff;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #ff6666;
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+@state-success-text:             #66cc99;
+@state-success-bg:               #66cc99;
+@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
+
+@state-info-text:                #66ccff;
+@state-info-bg:                  #66ccff;
+@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
+
+@state-warning-text:             #f0ad4e;
+@state-warning-bg:               #f0ad4e;
+@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
+
+@state-danger-text:              #ff6666;
+@state-danger-bg:                #ff6666;
+@state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
+
+.alert-success {
+  .alert-variant(@alert-success-bg; @alert-success-border; #fff);
+}
+
+.alert-info {
+  .alert-variant(@alert-info-bg; @alert-info-border; #fff);
+}
+
+.alert-warning {
+  .alert-variant(@alert-warning-bg; @alert-warning-border; #fff);
+}
+
+.alert-danger {
+  .alert-variant(@alert-danger-bg; @alert-danger-border; #fff);
+}

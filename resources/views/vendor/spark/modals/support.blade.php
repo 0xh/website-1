@@ -29,7 +29,7 @@
                     <!-- Message -->
                     <div class="form-group m-b-none" :class="{'has-error': supportForm.errors.has('message')}">
                         <div class="col-md-12">
-                            <textarea class="form-control" rows="7" v-model="supportForm.message" placeholder="Message"></textarea>
+                            <textarea class="form-control resize_vertical" rows="7" v-model="supportForm.message" placeholder="Message"></textarea>
 
                             <span class="help-block" v-show="supportForm.errors.has('message')">
                                 @{{ supportForm.errors.get('message') }}
