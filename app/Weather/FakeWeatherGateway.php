@@ -8,10 +8,10 @@ class FakeWeatherGateway implements WeatherGatewayInterface {
 
 	public function __construct(array $options = null) {
 		$this->data = [
-			'city' => 'city',
-			'state' => 'state',
-			'country' => 'country',
-			'continent' => 'continent'
+			'city' => 'City',
+			'state' => 'ST',
+			'country' => 'Country',
+			'continent' => 'Continent'
 		];
 	}
 

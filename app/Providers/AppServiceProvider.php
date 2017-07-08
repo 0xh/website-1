@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
 
 		if(app()->isLocal()) {
 			app()->bind(\App\Weather\WeatherGatewayInterface::class, \App\Weather\FakeWeatherGateway::class);
+		} else if(app()->environment() === 'production') {
+			app()->bind(\App\Weather\WeatherGatewayInterface::class, \App\Weather\DarkSkyWeatherGateway::class);
 		}
     }
 

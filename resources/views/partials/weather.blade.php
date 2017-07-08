@@ -1,19 +1,22 @@
 <weather-data :user="user" inline-template>
     <div class="panel weather-widget">
         <clip-loader :loading="loading" color="#86471E"></clip-loader>
-        <div class="row weather-data" v-if="!loading">
+        <div class="weather-data" v-if="!loading">
             <div class="col-md-12 temperature">
                 <h2>
                     <i class="wi wi-day-cloudy icon"></i>
-                    <span class="pull-right" v-if="weather.currently">
+                    <span v-if="weather.currently">
                         @{{ weather.currently.temperature }}
                         <sup>o</sup>
                         @{{ units[displayUnits]['temperature'] }}
-                        <br>
-                        <span class="location">
-                            <i class="ti-location-pin text-default"></i>
-                            @{{ weather.location.city }}, @{{ weather.location.state }} @{{ weather.location.country }}
-                        </span>
+                    </span>
+                    <span class="pull-right">
+                        <a href="/weather/map">
+                            <span class="location">
+                                <i class="ti-location-pin text-default"></i>
+                                @{{ weather.location.city }}, @{{ weather.location.state }} @{{ weather.location.country }}
+                            </span>
+                        </a>
                     </span>
                 </h2>
             </div>
@@ -23,7 +26,8 @@
             <div class="text-center">
                 <div class="col-xs-2 popup" v-for="n in 6">
                     <h5>@{{ getDayOfWeek(n) }}</h5>
-                    <canvas :id="'icons' + n" height="50" width="50" @></canvas>
+                    <i class="wi" :class="getWeatherIcon(n)"></i>
+                    {{--<canvas :id="'icons' + n" height="50" width="50" @></canvas>--}}
                     <p>@{{ getMaxByDay(n) }}/@{{ getMinByDay(n) }}</p>
                 </div>
             </div>

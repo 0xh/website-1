@@ -18,7 +18,8 @@ Vue.component('weather-data', {
         },
 
         isDay() {
-            return moment.local().isBetween(moment().hour(8).minute(0).second(0), moment().hour(20).minute(0).second(0));
+            const time = parseInt(moment().local().format('H'));
+            return time > 7 &&  time < 20;
         }
     },
 
@@ -64,15 +65,19 @@ Vue.component('weather-data', {
 
         getWeatherIcon(day) {
             var icon = this.weather.loaded ? this.weather.daily.data[day].icon == 'partly-cloudy-day' : ''
-            return this.weather.loaded ? `wi-${this.weather.daily.data[day].icon}` : ''
+            return this.weather.loaded ? `wi-${this.timeOfDay}-${this.processWeatherIcon(day)}` : ''
         },
 
-        getTimeOfDay() {
+        processWeatherIcon(day) {
+            let icon = this.weather.daily.data[day].icon;
 
-        },
+            if(icon.indexOf('partly-cloudy-day') > -1) {
+                icon = 'cloudy'
+            } else if(icon.indexOf('clear') > -1) {
+                icon = 'sunny'
+            }
 
-        renderIcons() {
-
+            return icon.replace('-night','').replace('-day', '');
         }
     },
 
