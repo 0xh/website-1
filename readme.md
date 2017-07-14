@@ -21,7 +21,13 @@ You may want to create a new branch to work in so you can pull any changes made 
 
 Once the repo has downloaded. You will need to navigate to the directory where the repo is located and do the following:
 
-`composer install` If this fails with error you may need to run `composer update` instead.
+```
+composer install
+```
+If this fails with error you may need to run 
+```
+composer update
+```
 
 Next you will want to run `npm install` to install node packages.
 
