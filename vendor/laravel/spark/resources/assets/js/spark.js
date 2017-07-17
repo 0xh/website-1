@@ -43,8 +43,12 @@ module.exports = {
         if (Spark.userId && Spark.usesApi) {
             this.refreshApiTokenEveryFewMinutes();
         }
+        // ===custom code for tabs
+        Bus.$on("sparkHashChanged", function() {
+            $("body").trigger("sparkHashChanged");
+        });
 
-        Bus.$on('updateUser', function () {
+        Bus.$on('updateUser', function() {
             self.getUser();
         });
 
@@ -52,17 +56,17 @@ module.exports = {
             self.loadDataForAuthenticatedUser();
         });
 
-        Bus.$on('updateTeams', function () {
+        Bus.$on('updateTeams', function() {
             self.getTeams();
         });
 
-        Bus.$on('showNotifications', function () {
+        Bus.$on('showNotifications', function() {
             $('#modal-notifications').modal('show');
 
             self.markNotificationsAsRead();
         });
 
-        Bus.$on('showSupportForm', function () {
+        Bus.$on('showSupportForm', function() {
             if (self.user) {
                 self.supportForm.from = self.user.email;
             }
@@ -144,7 +148,7 @@ module.exports = {
          * Get the current team list.
          */
         getTeams() {
-            axios.get('/'+Spark.pluralTeamString)
+            axios.get('/' + Spark.pluralTeamString)
                 .then(response => {
                     this.teams = response.data;
                 });
@@ -184,7 +188,7 @@ module.exports = {
          * Mark the current notifications as read.
          */
         markNotificationsAsRead() {
-            if ( ! this.hasUnreadNotifications) {
+            if (!this.hasUnreadNotifications) {
                 return;
             }
 
@@ -235,7 +239,7 @@ module.exports = {
          */
         hasUnreadAnnouncements() {
             if (this.notifications && this.user) {
-                if (this.notifications.announcements.length && ! this.user.last_read_announcements_at) {
+                if (this.notifications.announcements.length && !this.user.last_read_announcements_at) {
                     return true;
                 }
 
@@ -256,7 +260,7 @@ module.exports = {
         hasUnreadNotifications() {
             if (this.notifications) {
                 return _.filter(this.notifications.notifications, notification => {
-                    return ! notification.read;
+                    return !notification.read;
                 }).length > 0;
             }
 
